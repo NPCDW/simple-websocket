@@ -1,7 +1,7 @@
 services:
   simple-websocket:
     build:
-      context: .
+      context: build
       dockerfile: Dockerfile
     pull_policy: build
     image: npcdw/simple-websocket:latest
