@@ -1,9 +1,5 @@
 services:
   simple-websocket:
-    build:
-      context: build
-      dockerfile: Dockerfile
-    pull_policy: build
     image: npcdw/simple-websocket:latest
     container_name: simple-websocket
     ports:
