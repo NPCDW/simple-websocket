@@ -1,0 +1,12 @@
+services:
+  simple-websocket:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build
+    image: npcdw/simple-websocket:latest
+    container_name: simple-websocket
+    ports:
+      - 1234:1234
+    environment:
+      TZ : 'Asia/Shanghai'
