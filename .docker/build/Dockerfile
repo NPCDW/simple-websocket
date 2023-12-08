@@ -4,7 +4,9 @@ WORKDIR /usr/src
 
 RUN USER=root cargo new simple-websocket
 WORKDIR /usr/src/simple-websocket
-COPY ../../src/ ./
+COPY ../Cargo.toml ../Cargo.lock ./
+RUN cargo build --release
+COPY ../src/ ./
 RUN cargo build --release
 
 
