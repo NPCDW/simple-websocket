@@ -13,12 +13,10 @@ RUN cargo build --release
 
 
 
-FROM alpine:latest
+FROM debian:bookworm-slim
 
 WORKDIR /simple-websocket
 
 COPY --from=rust-build /usr/src/simple-websocket/target/release/simple-websocket /usr/local/bin/simple-websocket
 
-RUN apk add libc6-compat
-RUN apk add libgcc
 CMD simple-websocket
