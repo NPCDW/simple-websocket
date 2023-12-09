@@ -6,6 +6,7 @@ RUN USER=root cargo new simple-websocket
 WORKDIR /usr/src/simple-websocket
 COPY ./Cargo.toml ./Cargo.lock ./
 RUN cargo build --release
+RUN rm -rf src
 COPY ./src/ ./
 RUN cargo build --release
 
@@ -18,4 +19,6 @@ WORKDIR /simple-websocket
 
 COPY --from=rust-build /usr/src/simple-websocket/target/release/simple-websocket /usr/local/bin/simple-websocket
 
+RUN apk add libc6-compat
+RUN apk add libgcc
 CMD simple-websocket
