@@ -7,7 +7,7 @@ WORKDIR /usr/src/simple-websocket
 COPY ./Cargo.toml ./Cargo.lock ./
 RUN cargo build --release
 RUN rm -rf src
-COPY ./src/ ./
+COPY ./src ./src
 RUN cargo build --release
 
 
